@@ -201,6 +201,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5271549400699154664}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7803379298294329921}
     - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3169307799820959165}
@@ -881,6 +884,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &-7803379298294329921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364847683783107074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4c9faeafd93c04b88d2d56439e50e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 3783699454134175429}
+  camera: {fileID: 6242664059856254958}
 --- !u!1 &4564227364094329177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082271958561512970, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}

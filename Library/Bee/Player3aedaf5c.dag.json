@@ -486,17 +486,17 @@
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Core.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.Flow.dll",
-        "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonRealtime.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonChat.dll",
+        "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonRealtime.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonUnityNetworking.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonUnityNetworking.Demos.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonUnityNetworking.Utilities.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll",
         "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/Unity.VisualScripting.State.dll",
+        "E:/BE Project/Trial/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll",
         "E:/BE Project/Trial/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll",
         "E:/BE Project/Trial/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll",
-        "E:/BE Project/Trial/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll",
         "C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Facades/netstandard.dll",
         "C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Mono.Security.dll",
         "C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/System.ComponentModel.Composition.dll",
@@ -1446,18 +1446,6 @@
       "DebugActionIndex": 87
     },
     {
-      "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/PhotonRealtime.dll",
-      "DisplayName": "Copying PhotonRealtime.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonRealtime.dll"
-      ],
-      "Outputs": [
-        "E:/BE Project/build/Trial_Data/Managed/PhotonRealtime.dll"
-      ],
-      "DebugActionIndex": 88
-    },
-    {
       "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/PhotonChat.dll",
       "DisplayName": "Copying PhotonChat.dll",
       "ActionType": "CopyFiles",
@@ -1466,6 +1454,18 @@
       ],
       "Outputs": [
         "E:/BE Project/build/Trial_Data/Managed/PhotonChat.dll"
+      ],
+      "DebugActionIndex": 88
+    },
+    {
+      "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/PhotonRealtime.dll",
+      "DisplayName": "Copying PhotonRealtime.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonRealtime.dll"
+      ],
+      "Outputs": [
+        "E:/BE Project/build/Trial_Data/Managed/PhotonRealtime.dll"
       ],
       "DebugActionIndex": 89
     },
@@ -1542,6 +1542,18 @@
       "DebugActionIndex": 95
     },
     {
+      "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/websocket-sharp.dll",
+      "DisplayName": "Copying websocket-sharp.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "E:/BE Project/Trial/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll"
+      ],
+      "Outputs": [
+        "E:/BE Project/build/Trial_Data/Managed/websocket-sharp.dll"
+      ],
+      "DebugActionIndex": 96
+    },
+    {
       "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll",
       "DisplayName": "Copying Unity.VisualScripting.Antlr3.Runtime.dll",
       "ActionType": "CopyFiles",
@@ -1551,7 +1563,7 @@
       "Outputs": [
         "E:/BE Project/build/Trial_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll"
       ],
-      "DebugActionIndex": 96
+      "DebugActionIndex": 97
     },
     {
       "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/Photon3Unity3D.dll",
@@ -1562,18 +1574,6 @@
       ],
       "Outputs": [
         "E:/BE Project/build/Trial_Data/Managed/Photon3Unity3D.dll"
-      ],
-      "DebugActionIndex": 97
-    },
-    {
-      "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/websocket-sharp.dll",
-      "DisplayName": "Copying websocket-sharp.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "E:/BE Project/Trial/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll"
-      ],
-      "Outputs": [
-        "E:/BE Project/build/Trial_Data/Managed/websocket-sharp.dll"
       ],
       "DebugActionIndex": 98
     },
@@ -2694,18 +2694,6 @@
       "DebugActionIndex": 191
     },
     {
-      "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/PhotonRealtime.pdb",
-      "DisplayName": "Copying PhotonRealtime.pdb",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonRealtime.pdb"
-      ],
-      "Outputs": [
-        "E:/BE Project/build/Trial_Data/Managed/PhotonRealtime.pdb"
-      ],
-      "DebugActionIndex": 192
-    },
-    {
       "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/PhotonChat.pdb",
       "DisplayName": "Copying PhotonChat.pdb",
       "ActionType": "CopyFiles",
@@ -2714,6 +2702,18 @@
       ],
       "Outputs": [
         "E:/BE Project/build/Trial_Data/Managed/PhotonChat.pdb"
+      ],
+      "DebugActionIndex": 192
+    },
+    {
+      "Annotation": "CopyFiles E:/BE Project/build/Trial_Data/Managed/PhotonRealtime.pdb",
+      "DisplayName": "Copying PhotonRealtime.pdb",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "E:/BE Project/Trial/Library/Bee/PlayerScriptAssemblies/PhotonRealtime.pdb"
+      ],
+      "Outputs": [
+        "E:/BE Project/build/Trial_Data/Managed/PhotonRealtime.pdb"
       ],
       "DebugActionIndex": 193
     },

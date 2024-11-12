@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class NewBehaviourScript : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviourPunCallbacks
 {
     public Animator animator;
     public Rigidbody[] ragdollRigidbodies;
     public CharacterController characterController;
-    public Transform hips; // Reference to the character's hips/pelvis
+    public Transform hips;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private bool isRagdollActive = false;
+    private PhotonView photonView;
 
     void Start()
     {
+        photonView = GetComponent<PhotonView>();
+        
         // Get all rigidbodies in children
         ragdollRigidbodies = GetComponentsInChildren<Rigidbody>(true);
         
@@ -49,6 +53,12 @@ public class NewBehaviourScript : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
             
+            // Set ownership for network synchronization
+            if (rb.gameObject.GetComponent<PhotonView>() == null)
+            {
+                rb.gameObject.AddComponent<PhotonView>();
+            }
+            
             // Ignore collisions between character controller and ragdoll colliders
             Collider ragdollCollider = rb.GetComponent<Collider>();
             if (ragdollCollider != null && characterController != null)
@@ -59,6 +69,14 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     void ToggleRagdoll(bool isRagdoll)
+    {
+        if (!photonView.IsMine) return; // Only the owner can toggle ragdoll state
+        
+        photonView.RPC("RPC_ToggleRagdoll", RpcTarget.All, isRagdoll);
+    }
+
+    [PunRPC]
+    private void RPC_ToggleRagdoll(bool isRagdoll)
     {
         isRagdollActive = isRagdoll;
         
@@ -79,6 +97,13 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 rb.isKinematic = !isRagdoll;
                 rb.useGravity = isRagdoll;
+                
+                // Transfer ownership of rigidbody to the local player when ragdolling
+                PhotonView rbView = rb.gameObject.GetComponent<PhotonView>();
+                if (rbView != null && isRagdoll && photonView.IsMine)
+                {
+                    rbView.RequestOwnership();
+                }
             }
         }
 
@@ -108,6 +133,8 @@ public class NewBehaviourScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (!photonView.IsMine) return; // Only process collisions for the local player
+        
         if (collision.gameObject.CompareTag("hit") && !isRagdollActive)
         {
             Debug.Log($"Hit detected with: {collision.gameObject.name}");
@@ -117,22 +144,36 @@ public class NewBehaviourScript : MonoBehaviour
             if (collision.rigidbody != null)
             {
                 Vector3 force = collision.impulse * 10f; // Adjust multiplier as needed
-                foreach (var rb in ragdollRigidbodies)
-                {
-                    rb.AddForce(force, ForceMode.Impulse);
-                }
+                photonView.RPC("RPC_ApplyRagdollForce", RpcTarget.All, force);
+            }
+        }
+    }
+
+    [PunRPC]
+    private void RPC_ApplyRagdollForce(Vector3 force)
+    {
+        if (!isRagdollActive) return;
+        
+        foreach (var rb in ragdollRigidbodies)
+        {
+            if (rb != null)
+            {
+                rb.AddForce(force, ForceMode.Impulse);
             }
         }
     }
 
     void Update()
     {
-        // Debug controls
+        // Only process input for the local player
+        if (!photonView.IsMine) return;
+        
+        // Debug controls for ragdoll toggling
         if (Input.GetKeyDown(KeyCode.P))
         {
             ToggleRagdoll(true);
         }
-        if (Input.GetKeyDown(KeyCode.O))
+        else if (Input.GetKeyDown(KeyCode.O))
         {
             ToggleRagdoll(false);
         }

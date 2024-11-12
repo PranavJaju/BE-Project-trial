@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3783699454134175429}
-  camera: {fileID: 6242664059856254958}
+  playerCamera: {fileID: 6242664059856254958}
 --- !u!1 &4564227364094329177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082271958561512970, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}

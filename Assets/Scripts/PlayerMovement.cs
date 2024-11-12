@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canMove = true;
 
+    private float inputx, inputz;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -34,10 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        inputx = Input.GetAxis("Horizontal");
+        inputz = Input.GetAxis("Vertical");
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
         animator.SetFloat("vertical", Input.GetAxis("Vertical"));
-        animator.SetFloat("horizontal", Input.GetAxis("Horizontal"));
+        animator.SetFloat("horizontal", 0);
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
         float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
@@ -95,5 +99,10 @@ public class PlayerMovement : MonoBehaviour
             // }
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
+    }
+
+    void FixedUpdate()
+    {
+        characterController.transform.Rotate(Vector3.up * inputx * (100f * Time.deltaTime));
     }
 }

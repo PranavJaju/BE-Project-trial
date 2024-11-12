@@ -3,6 +3,7 @@
 public class MouseLook : MonoBehaviour
 {
     public static MouseLook instance;
+    public NewBehaviourScript ragdoll;
 
     [Header("Settings")]
     public Vector2 clampInDegrees = new Vector2(360, 180);
@@ -36,7 +37,7 @@ public class MouseLook : MonoBehaviour
         // Set target direction for the character body to its inital state.
         if (characterBody)
             targetCharacterDirection = characterBody.transform.localRotation.eulerAngles;
-        
+
         if (lockCursor)
             LockCursor();
 
@@ -82,12 +83,21 @@ public class MouseLook : MonoBehaviour
         if (characterBody)
         {
             var yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, Vector3.up);
-            characterBody.transform.localRotation = yRotation * targetCharacterOrientation;
+            if (ragdoll.isRagdollActive)
+            {
+                characterBody.transform.localRotation = yRotation * targetCharacterOrientation;
+            }
+            // characterBody.transform.localRotation = yRotation * targetCharacterOrientation;
+            // Debug.Log("Character Body");
         }
         else
         {
             var yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, transform.InverseTransformDirection(Vector3.up));
             transform.localRotation *= yRotation;
+            // Debug.Log("No Character Body");
         }
     }
+
+
+
 }

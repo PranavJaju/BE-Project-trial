@@ -11,7 +11,7 @@ public class NewBehaviourScript : MonoBehaviourPunCallbacks
     public Transform hips;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
-    private bool isRagdollActive = false;
+    public bool isRagdollActive = false;
     private PhotonView photonView;
 
     void Start()

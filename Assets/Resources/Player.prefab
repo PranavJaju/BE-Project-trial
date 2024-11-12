@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdd0a6b32680e44b84a22c60b4266ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdoll: {fileID: 3917293204983527479}
   clampInDegrees: {x: 360, y: 180}
   lockCursor: 1
   smoothing: {x: 3, y: 3}
@@ -828,6 +829,7 @@ MonoBehaviour:
   ragdollRigidbodies: []
   characterController: {fileID: 1403135774090501315}
   hips: {fileID: 8901522681986947116}
+  isRagdollActive: 0
 --- !u!114 &1811841697562042903
 MonoBehaviour:
   m_ObjectHideFlags: 0

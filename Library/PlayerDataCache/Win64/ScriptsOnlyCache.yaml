@@ -3,11 +3,13 @@ ScriptsOnlyBuild:
     Assembly-CSharp:
     - MouseLook
     - NewBehaviourScript
+    - PickupClass
     - PlayerMovement
     - PlayerSetup
     Assembly-CSharp.dll:
     - MouseLook
     - NewBehaviourScript
+    - PickupClass
     - PlayerMovement
     - PlayerSetup
     - RoomManager
@@ -113,55 +115,57 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16618}
+      Script: {instanceID: 1540}
     - Class: 114
-      Script: {instanceID: 16674}
+      Script: {instanceID: 1596}
     - Class: 114
-      Script: {instanceID: 16718}
+      Script: {instanceID: 1640}
     - Class: 114
-      Script: {instanceID: 16844}
+      Script: {instanceID: 1766}
     - Class: 114
-      Script: {instanceID: 16876}
+      Script: {instanceID: 1798}
     - Class: 114
-      Script: {instanceID: 17628}
+      Script: {instanceID: 2550}
     - Class: 114
-      Script: {instanceID: 17694}
+      Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 18172}
+      Script: {instanceID: 3094}
     - Class: 114
-      Script: {instanceID: 19010}
+      Script: {instanceID: 3444}
     - Class: 114
-      Script: {instanceID: 19014}
+      Script: {instanceID: 3934}
     - Class: 114
-      Script: {instanceID: 19178}
+      Script: {instanceID: 3938}
     - Class: 114
-      Script: {instanceID: 19582}
+      Script: {instanceID: 4102}
     - Class: 114
-      Script: {instanceID: 20246}
+      Script: {instanceID: 4506}
     - Class: 114
-      Script: {instanceID: 20262}
+      Script: {instanceID: 5170}
     - Class: 114
-      Script: {instanceID: 20664}
+      Script: {instanceID: 5186}
     - Class: 114
-      Script: {instanceID: 20706}
+      Script: {instanceID: 5588}
     - Class: 114
-      Script: {instanceID: 21324}
+      Script: {instanceID: 5630}
     - Class: 114
-      Script: {instanceID: 21380}
+      Script: {instanceID: 6248}
     - Class: 114
-      Script: {instanceID: 21980}
+      Script: {instanceID: 6304}
     - Class: 114
-      Script: {instanceID: 22406}
+      Script: {instanceID: 6904}
     - Class: 114
-      Script: {instanceID: 22492}
+      Script: {instanceID: 7330}
     - Class: 114
-      Script: {instanceID: 22580}
+      Script: {instanceID: 7418}
     - Class: 114
-      Script: {instanceID: 22850}
+      Script: {instanceID: 7506}
     - Class: 114
-      Script: {instanceID: 22978}
+      Script: {instanceID: 7776}
     - Class: 114
-      Script: {instanceID: 23276}
+      Script: {instanceID: 7904}
+    - Class: 114
+      Script: {instanceID: 8202}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -195,12 +199,6 @@ ScriptsOnlyBuild:
     - Class: 225
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: 46734dde0a5a2061455766be7c7d214e
-    assemblyName: PhotonUnityNetworking.Utilities
-    namespaceName: Photon.Pun.UtilityScripts
-    className: OnJoinedInstantiate
   - hash:
       serializedVersion: 2
       Hash: b5007673bbbdb9d12597a1d8201370f5
@@ -741,6 +739,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
     className: ScriptMachine
+  - hash:
+      serializedVersion: 2
+      Hash: bd65a1aa6ef282fead58c6fb5c23af69
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PickupClass
   - hash:
       serializedVersion: 2
       Hash: 43ebd945b04bced376c791411cf5a289
@@ -1799,6 +1803,12 @@ ScriptsOnlyBuild:
     className: CurrentRoomExpectedUsersProperty
   - hash:
       serializedVersion: 2
+      Hash: 46734dde0a5a2061455766be7c7d214e
+    assemblyName: PhotonUnityNetworking.Utilities
+    namespaceName: Photon.Pun.UtilityScripts
+    className: OnJoinedInstantiate
+  - hash:
+      serializedVersion: 2
       Hash: d0392b7f3f52d5af537ade186b4f51f1
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -2064,4 +2074,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/sunaykishorbhoyar/Desktop/windows/Trial.exe
+  playerPath: C:/BE/New folder/Trial.exe

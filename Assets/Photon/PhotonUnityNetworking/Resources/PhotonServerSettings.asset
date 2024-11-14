@@ -46,6 +46,16 @@ MonoBehaviour:
   - Pickup
   - Throw
   - UpdatePosition
+  - ApplyKnockback
+  - HandleDropAnimation
+  - HandlePickupAnimation
+  - HandleThrowAnimation
+  - PlayItemAnimation
+  - PlayDropAnimation
+  - PlayPickupAnimation
+  - PlayThrowAnimation
+  - PlayFallAnimation
+  - PlayIdleAnimation
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

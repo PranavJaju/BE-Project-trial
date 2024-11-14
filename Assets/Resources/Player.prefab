@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b8b644613cb13c04ea2de89e1222e0f5, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -245,6 +249,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2290316622120719370}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1550309382120440810}
     - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3169307799820959165}
@@ -797,7 +804,7 @@ MonoBehaviour:
   playerCamera: {fileID: 2635557027819034972}
   walkSpeed: 6
   runSpeed: 12
-  jumpPower: 7
+  jumpPower: 0
   gravity: 10
   lookSpeed: 2
   lookXLimit: 45
@@ -961,6 +968,16 @@ MonoBehaviour:
   PickupRange: 100
   Hand: {fileID: 4234739131993683957}
   ThrowingForce: 100
+  KnockbackForce: 10
+  KnockbackUpwardForce: 2
+  playerAnimator: {fileID: 0}
+  pickupAnimationDuration: 1
+  throwAnimationDuration: 0.5
+  transitionDuration: 0.1
+  pickupStateName: pickup
+  throwStateName: throw
+  fallStateName: fall
+  idleStateName: idle
 --- !u!114 &2290316622120719370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,9 +1002,33 @@ MonoBehaviour:
   - Type: 1
     SynchronizeType: 2
     Name: horizontal
+  - Type: 9
+    SynchronizeType: 0
+    Name: PickupTrigger
+  - Type: 9
+    SynchronizeType: 0
+    Name: ThrowTrigger
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsHolding
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+--- !u!114 &1550309382120440810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364847683783107074}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d0ebf68cb856247ab158b950434585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupTriggerName: PickupTrigger
+  holdingBoolName: IsHolding
+  throwTriggerName: ThrowTrigger
 --- !u!1 &4564227364094329177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082271958561512970, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}

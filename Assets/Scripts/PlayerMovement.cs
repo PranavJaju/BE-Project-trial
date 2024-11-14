@@ -136,6 +136,8 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 
     private bool canMove = true;
     private float inputx, inputz;
+    private bool isJumping = false;
+    private float verticalVelocity = 0f;
 
     // Networking variables
     private Vector3 networkPosition;
@@ -147,6 +149,12 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         photonAnimatorView = GetComponent<PhotonAnimatorView>();
+
+        // Configure the animator's root motion
+        if (animator != null)
+        {
+            animator.applyRootMotion = false;  // This is crucial - disable root motion
+        }
 
         // Only enable camera and cursor lock for the local player
         if (photonView.IsMine)
@@ -175,7 +183,6 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            // Smooth out movement for remote players
             UpdateRemotePlayer();
         }
     }
@@ -192,22 +199,31 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * inputz : 0;
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * inputx : 0;
 
-        float movementDirectionY = moveDirection.y;
+        // Calculate horizontal movement
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+        // Handle jumping and gravity
+        if (characterController.isGrounded)
         {
-            moveDirection.y = jumpPower;
+            // Reset vertical velocity and jumping state when grounded
+            verticalVelocity = -0.5f; // Small downward force to maintain grounding
+            isJumping = false;
+
+            // Only allow jumping when grounded and space is pressed
+            if (Input.GetButtonDown("Jump") && canMove)
+            {
+                verticalVelocity = jumpPower;
+                isJumping = true;
+            }
         }
         else
         {
-            moveDirection.y = movementDirectionY;
+            // Apply gravity when in air
+            verticalVelocity -= gravity * Time.deltaTime;
         }
 
-        if (!characterController.isGrounded)
-        {
-            moveDirection.y -= gravity * Time.deltaTime;
-        }
+        // Apply vertical movement
+        moveDirection.y = verticalVelocity;
 
         // Handle crouching
         if (Input.GetKey(KeyCode.R) && canMove)
@@ -223,8 +239,10 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
             runSpeed = 12f;
         }
 
+        // Apply movement
         characterController.Move(moveDirection * Time.deltaTime);
 
+        // Handle camera rotation
         if (canMove)
         {
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
@@ -239,12 +257,11 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
         // Set animation parameters
         animator.SetFloat("vertical", inputz);
         animator.SetFloat("horizontal", inputx);
-        animator.SetBool("isJump", !characterController.isGrounded);
+        animator.SetBool("isJump", isJumping);
     }
 
     void UpdateRemotePlayer()
     {
-        // Smooth position
         float distance = Vector3.Distance(transform.position, networkPosition);
         if (distance > lagDistance)
         {
@@ -255,7 +272,6 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
             transform.position = Vector3.Lerp(transform.position, networkPosition, Time.deltaTime * 10f);
         }
 
-        // Smooth rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, networkRotation, Time.deltaTime * 10f);
     }
 
@@ -271,13 +287,11 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            // Send data
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
         }
         else
         {
-            // Receive data
             networkPosition = (Vector3)stream.ReceiveNext();
             networkRotation = (Quaternion)stream.ReceiveNext();
         }

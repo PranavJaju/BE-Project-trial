@@ -34,6 +34,7 @@ ScriptsOnlyBuild:
     PhotonUnityNetworking.Editor.dll:
     - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
+    - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
     - Photon.Pun.PhotonTransformView
     - Photon.Pun.PhotonView
@@ -2074,4 +2075,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/BE/New folder/Trial.exe
+  playerPath: C:/BE/build/Trial.exe

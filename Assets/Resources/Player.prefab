@@ -242,6 +242,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8809753133461759584}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2290316622120719370}
     - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3169307799820959165}
@@ -886,8 +889,10 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 3783699454134175429}
   - {fileID: 8810472046431654746}
   - {fileID: 5271549400699154664}
+  - {fileID: 2290316622120719370}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -956,6 +961,33 @@ MonoBehaviour:
   PickupRange: 100
   Hand: {fileID: 4234739131993683957}
   ThrowingForce: 100
+--- !u!114 &2290316622120719370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4364847683783107074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isJump
+  - Type: 1
+    SynchronizeType: 2
+    Name: vertical
+  - Type: 1
+    SynchronizeType: 2
+    Name: horizontal
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &4564227364094329177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082271958561512970, guid: 4a58d7113a9aa7f4bb09c7fd270fe112, type: 3}
